@@ -25,6 +25,15 @@ class PoneysTest extends TestCase
         $this->assertEquals(5, $Poneys->getCount());
     }
 
+    public function testRemovePoneyFromFieldNegativeValue()
+    {
+        $Poneys = new Poneys();
+
+        $this->expectException(InvalidArgumentException::class);
+
+        $Poneys->removePoneyFromField(-1);
+    }
+    
     public function testAddPoneyToField()
     {
         $Poneys = new Poneys();

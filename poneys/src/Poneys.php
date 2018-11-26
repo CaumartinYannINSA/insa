@@ -25,6 +25,11 @@ class Poneys
      */
     public function removePoneyFromField(int $number): void
     {
+        if($number <= 0)
+        {
+            throw new InvalidArgumentException('You cannot remove a negative amount of poneys');
+        }
+
         $this->_count -= $number;
     }
 
