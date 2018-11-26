@@ -24,5 +24,14 @@ class PoneysTest extends TestCase
         // Assert
         $this->assertEquals(5, $Poneys->getCount());
     }
+
+    public function testAddPoneyToField()
+    {
+        $Poneys = new Poneys();
+        
+        $Poneys->addPoneyToField(4);
+
+        $this->assertEquals(12, $Poneys->getCount());
+    }
 }
 ?>

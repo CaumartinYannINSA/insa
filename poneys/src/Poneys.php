@@ -28,6 +28,11 @@ class Poneys
         $this->_count -= $number;
     }
 
+    public function addPoneyToField(int $number): void
+    {
+        $this->_count += $number;
+    }
+
     /**
      * Retourne les noms des poneys
      *
