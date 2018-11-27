@@ -45,7 +45,7 @@ class Poneys
      */
     public function getNames(): array
     {
-
+        return ['A', 'B', 'C'];
     }
 }
 ?>

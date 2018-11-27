@@ -49,5 +49,19 @@ class PoneysTest extends TestCase
     {
         return [[3,5],[6,2],[8,0]];
     }
+
+    public function testGetNames()
+    {
+        $Poneys = $this->createMock('Poneys');
+
+        $array = ['A', 'B', 'C'];
+
+        $Poneys
+            ->expects($this->once())
+            ->method('getNames')
+            ->willReturn($array);
+
+        $this->assertEquals(['A', 'B', 'C'], $Poneys->getNames());
+    }
 }
 ?>
