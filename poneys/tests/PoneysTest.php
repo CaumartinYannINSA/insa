@@ -63,5 +63,16 @@ class PoneysTest extends TestCase
 
         $this->assertEquals(['A', 'B', 'C'], $Poneys->getNames());
     }
+
+    public function testIsNotFull()
+    {
+        $Poneys = new Poneys();
+
+        $this->assertTrue($Poneys->isNotFull());
+            
+        $Poneys->addPoneyToField(7);
+
+        $this->assertFalse($Poneys->isNotFull());
+    }
 }
 ?>
