@@ -8,6 +8,8 @@ require_once 'src/Poneys.php';
  */
 class PoneysTest extends TestCase
 {
+
+    private $Poneys;
     /**
      * Undocumented function
      *
@@ -18,10 +20,10 @@ class PoneysTest extends TestCase
     public function testRemovePoneyFromField($number, $expected)
     {
         // Setup
-        $Poneys = new Poneys();
+        $this->Poneys = new Poneys();
 
         // Action
-        $Poneys->removePoneyFromField($number);
+        $this->Poneys->removePoneyFromField($number);
 
         // Assert
         $this->assertEquals($expected, 8 - $number);
@@ -29,20 +31,20 @@ class PoneysTest extends TestCase
 
     public function testRemovePoneyFromFieldNegativeValue()
     {
-        $Poneys = new Poneys();
+        $this->Poneys = new Poneys();
 
         $this->expectException(InvalidArgumentException::class);
 
-        $Poneys->removePoneyFromField(-1);
+        $this->Poneys->removePoneyFromField(-1);
     }
     
     public function testAddPoneyToField()
     {
-        $Poneys = new Poneys();
+        $this->Poneys = new Poneys();
         
-        $Poneys->addPoneyToField(4);
+        $this->Poneys->addPoneyToField(4);
 
-        $this->assertEquals(12, $Poneys->getCount());
+        $this->assertEquals(12, $this->Poneys->getCount());
     }
 
     public function removePoneyFromFieldProvider()
@@ -52,27 +54,34 @@ class PoneysTest extends TestCase
 
     public function testGetNames()
     {
-        $Poneys = $this->createMock('Poneys');
+        $this->Poneys = $this->createMock('Poneys');
 
         $array = ['A', 'B', 'C'];
 
-        $Poneys
+        $this->Poneys
             ->expects($this->once())
             ->method('getNames')
             ->willReturn($array);
 
-        $this->assertEquals(['A', 'B', 'C'], $Poneys->getNames());
+        $this->assertEquals(['A', 'B', 'C'], $this->Poneys->getNames());
     }
 
     public function testIsNotFull()
     {
-        $Poneys = new Poneys();
+        $this->Poneys = new Poneys();
 
-        $this->assertTrue($Poneys->isNotFull());
+        $this->assertTrue($this->Poneys->isNotFull());
             
-        $Poneys->addPoneyToField(7);
+        $this->Poneys->addPoneyToField(7);
 
-        $this->assertFalse($Poneys->isNotFull());
+        $this->assertFalse($this->Poneys->isNotFull());
+    }
+
+    public function setUp()
+    {
+        $this->Poneys = new Poneys();        
+
+        $this->Poneys->setCount(8);
     }
 }
 ?>

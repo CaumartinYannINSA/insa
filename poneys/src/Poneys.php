@@ -56,5 +56,10 @@ class Poneys
         }
         return false;
     }
+
+    public function setCount($count)
+    {
+        $this->_count = $count;
+    }
 }
 ?>
