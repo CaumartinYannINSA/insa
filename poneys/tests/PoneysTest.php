@@ -83,5 +83,10 @@ class PoneysTest extends TestCase
 
         $this->Poneys->setCount(8);
     }
+
+    public function tearDown()
+    {
+        $this->Poneys = Null;
+    }
 }
 ?>
