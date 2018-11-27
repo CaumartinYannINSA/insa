@@ -47,5 +47,14 @@ class Poneys
     {
         return ['A', 'B', 'C'];
     }
+
+    public function isNotFull()
+    {
+        if ($this->_count < 15)
+        {
+            return true;
+        }
+        return false;
+    }
 }
 ?>
