@@ -45,7 +45,12 @@ class Poneys
      */
     public function getNames(): array
     {
-        return ['A', 'B', 'C'];
+        $poneys = [];
+        for($i = 0; $i <= $this->_count; $i++)
+        {
+            array_push($poneys, chr($i + ord('A')));
+        }
+        return $poneys;
     }
 
     public function isNotFull()

@@ -56,14 +56,14 @@ class PoneysTest extends TestCase
     {
         $this->Poneys = $this->createMock('Poneys');
 
-        $array = ['A', 'B', 'C'];
+        $array = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 
         $this->Poneys
             ->expects($this->once())
             ->method('getNames')
             ->willReturn($array);
 
-        $this->assertEquals(['A', 'B', 'C'], $this->Poneys->getNames());
+        $this->assertEquals($array, $this->Poneys->getNames());
     }
 
     public function testIsNotFull()
